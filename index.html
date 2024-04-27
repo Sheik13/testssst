@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>WCAG 2 Guideline Failure Test Website</title>
+    </head>
+    <body>
+        <h1>Failure Examples</h1>
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/visualimpairment.html">visual impairment</a>
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/images.html">Accessible image name</a> 
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/contrast.html">Color contrast</a>           
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/tech.html">Assistive technology</a>    
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/missingname.html">Missing accessible name</a>    
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/button.html">Empty button</a>   
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/link.html">Empty link name</a>  
+        <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/label.html">Missing label</a>       
+
+        <h2>1.1.1: Non-text Content (Level A)</h2>
+            <h3>Image accessible name is descriptive</h3>
+                <img src="test-assets/w3c-logo.png" alt="ERCIM logo" />
+                <br>
+                <svg viewBox="0 0 512 512" aria-label="W3C" role="img">
+                    <path
+                        d="M108.4 0h23v22.8h21.2V0h23v69h-23V46h-21v23h-23.2M206 23h-20.3V0h63.7v23H229v46h-23M259.5 0h24.1l14.8 24.3L313.2 0h24.1v69h-23V34.8l-16.1 24.8l-16.1-24.8v34.2h-22.6M348.7 0h23v46.2h32.6V69h-55.6"
+                    />
+                    <path fill="#e44d26" d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" />
+                    <path fill="#f16529" d="M256 480.5V131H404.3L376 447" />
+                    <path
+                        fill="#ebebeb"
+                        d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4M156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26"
+                    />
+                    <path fill="#fff" d="M369.6 176.3H255.8v45.4h109.6M361.3 268.2H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
+                </svg>
+
+            <h3>Image has non-empty accessible name</h3>
+                <img src="test-assets/w3c-logo.png" />
+                <br>
+                <img src="test-assets/w3c-logo.png" alt=" " />
+                <br>
+                <img role="none" tabindex="0" src="test-assets/w3c-logo.png" />
+
+            <h3>Object element rendering non-text content has non-empty accessible name</h3>
+                <object data="test-assets/moon-speech.mp3"></object>
+                <br>
+                <object title="" data="test-assets/video.mp4"></object>
+                <br>
+                <span id="label"></span> <object aria-labelledby="label" data="test-assets/w3c-logo.png"></object>
+
+            <h3>SVG element with explicit role has non-empty accessible name</h3>
+                <p>How many circles are there?</p>
+                <svg xmlns="http://www.w3.org/2000/svg" role="img">
+                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"></circle>
+                </svg>
+                <br>
+                <p>How many circles are there?</p>
+                <svg xmlns="http://www.w3.org/2000/svg" role="img">
+                    <title></title>
+                    <circle cx="50" cy="50" r="40" fill="yellow"></circle>
+                </svg>
+                <br>
+                <p>How many circles are there?</p>
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <circle role="graphics-symbol" cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"></circle>
+                </svg>
+                <br>
+                <p>How many circles are there?</p>
+                <svg xmlns="http://www.w3.org/2000/svg" role="img" width="100" height="100">
+                    <circle cx="50" cy="50" r="40" fill="yellow"></circle>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+                        1 circle
+                    </text>
+                </svg>
+
+            <h3>Image button has non-empty accessible name</h3>
+                <input type="image" name="search" src="test-assets/search-icon.svg" />
+                <br>
+                <input type="image" src="test-assets/search-icon.svg" alt="" />
+                <br>
+                <input type="image" src="test-assets/search-icon.svg" aria-labelledby="non-existing" />
+
+        <h2>1.3.1: Info and Relationships (Level A)</h2>
+            <h3>Headers attribute specified on a cell refers to cells in the same table element</h3>
+                <table>
+                    <tr>
+                        <th id="headerOfColumn1">Projects</th>
+                        <th id="headerOfColumn2">Objective</th>
+                    </tr>
+                    <tr>
+                        <td headers="headOfColumn1">15%</td>
+                        <td headers="headOfColumn2">10%</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <th id="headOfColumn1">Projects</th>
+                        <th id="headOfColumn2">Objective</th>
+                    </tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td headers="headOfColumn1">15%</td>
+                        <td headers="headOfColumn2">10%</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <th>Event Type</th>
+                    </tr>
+                    <tr>
+                        <td id="headerBday" headers="headerBday">
+                            Birthday
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            <span id="headerProject">Projects</span>
+                        </td>
+                        <td>
+                            <span id="headerObjective">Objective</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td headers="headerProject">
+                            15%
+                        </td>
+                        <td headers="headerObjective">
+                            10%
+                        </td>
+                    </tr>
+                </table>
+            
+        <h2>1.3.5: Identify Input Purpose (Level AA)</h2>
+            <h3>Autocomplete attribute has valid value</h3>
+                <label>Username<input autocomplete="badname"/></label>
+                <br>
+                <label>Photo<input autocomplete="work photo"/></label>
+                <br>
+                <label>Email<input autocomplete="work shipping email"/></label>
+                <br>
+                <label>Email<input autocomplete="work,email"/></label>
+                <br>
+                <label>Username<input role="banner" tabindex="0" autocomplete="banner"/></label>
+                <br>
+                <label>Address<input autocomplete="shipping"/></label>
+                <br>
+                <label>Address<input autocomplete="address-line1 address-line2"/></label>
+                <br>
+                <label>Email<input autocomplete="work"/></label>
+                <br>
+                <label>Password<input type="password" autocomplete="current-password webauthn invalid"/></label>
+                <br>
+                <label>Email<input autocomplete="email invalid"/></label>
+
+        <h2>1.4.3: Contrast (Minimum) (Level AA)</h2>
+            <h3>Text has minimum contrast</h3>
+                <p style="color: #AAA; background: white;">
+                    Some text in English
+                </p>
+                <br>
+                <p style="color: #AAA; background: white;">
+                    Some text in English
+                </p>
+                <p
+                    style="color: #555; height:50px; padding-top:20px; background: black no-repeat -20px -20px url('test-assets/black-hole.jpeg');"
+                >
+                    Black hole sun
+                </p>
+                <br>
+                <p style="color: rgba(0,0,0,.3); background: #FFF">
+                    Some text in English
+                </p>
+                <br>
+                <div style="background: #FFF">
+                    <p style="color: #000; opacity: .3">
+                        Some text in English
+                    </p>
+                </div>
+                <br>
+                <p style="color: #aaa; background: #fff;" id="p"></p>
+                <script>
+                    const shadowRoot = document.getElementById('p').attachShadow({ mode: 'open' })
+                    shadowRoot.textContent = 'Some text in English'
+                </script>
+                <br>
+                <style>
+                    #backgroundSplit {
+                        color: rgba(90, 90, 90, 0.8);
+                        background-position: top 0 left 0;
+                        background-image: linear-gradient(90deg, transparent, transparent 3.3em, black 3.3em, black 6em);
+                        padding: 0 1em;
+                    }
+                </style>
+                <span id="backgroundSplit">
+                    Hello world
+                </span>
+                <br>
+                <p style="color: #333; background: #FFF;">
+                    Helvetica is a widely used sans-serif typeface developed in 1957 by Max Miedinger and Eduard Hoffmann.
+                </p>
+                <p style="font-family: helvetica; background: #EEE; color: #777;">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+                <br>
+                <button style="color: #777; background: #EEE;">My button!</button>
+                <br>
+                <div role="button" style="color: #777; background: #EEE;">My button!</div>
+            
+        <h2>1.4.4: Resize text (Level AA)</h2> 
+            <h3>Meta viewport allows for zoom</h3>
+                <html>
+                    <head>
+                        <title>Simple page showing random text</title>
+                        <meta name="viewport" content="user-scalable=no" />
+                    </head>
+                    <body>
+                        <p>
+                            Lorem ipsum
+                        </p>
+                    </body>
+                </html>
+                <br>
+                <html>
+                    <head>
+                        <title>Simple page showing random text</title>
+                        <meta name="viewport" content="user-scalable=yes, initial-scale=0.8, maximum-scale=1.5" />
+                    </head>
+                    <body>
+                        <p>
+                            Lorem ipsum
+                        </p>
+                    </body>
+                </html>
+                <br>
+                <html>
+                    <head>
+                        <title>Simple page showing random text</title>
+                        <meta name="viewport" content="maximum-scale=1.0" />
+                    </head>
+                    <body>
+                        <p>
+                            Lorem ipsum
+                        </p>
+                    </body>
+                </html>
+                <br>
+                <html>
+                    <head>
+                        <title>Simple page showing random text</title>
+                        <meta name="viewport" content="maximum-scale=yes" />
+                    </head>
+                    <body>
+                        <p>
+                            Lorem ipsum
+                        </p>
+                    </body>
+                </html>
+
+        <h2>1.4.5: Images of Text (Level AA)</h2>
+            <h3> HTML images contain no text</h3>
+                <img
+                src="test-assets/textimage.jpg"
+                alt="The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules."
+                />
+                <br>
+                <input type="image" src="test-assets/button.jpg" alt="Press me" />
+                <br>
+                <div style="background-image: url(test-assets/textimage.jpg); width: 500px; height: 200px;" />
+                <img src="test-assets/0va7u6/welcome.png" alt="" />
+                <p>Welcome to our website</p>
+                <br>
+                <img
+                    alt="WCAG Rocks"
+                    src="data:image/svg+xml;utf8,
+                <svg xmlns='http://www.w3.org/2000/svg' height='20px' width='80px'>
+                    <text x='0' y='15'>WCAG Rocks</text>
+                </svg>"
+                />
+
+        <h2>1.4.6: Contrast (Enhanced) (Level AAA)</h2>
+            <h3>Text has enhanced contrast </h3>
+                <p style="color: #666; background: white;">
+                    Some text in English
+                </p>
+                <br>
+                <p style="color: #666; background: linear-gradient(to right, #FFF, #0FF); width: 300px">
+                    Some text in English
+                </p>
+                <br>
+                <p style="color: #000; font-size:18pt; background: #666;">
+                    Some text in a human language
+                </p>
+                <br>
+                <p style="color: #AAA; background: white;">
+                    Some text in English
+                </p>
+                <br>
+                <p style="color: #000; font-size:14pt; font-weight:700; background: #666;">
+                    Some text in English
+                </p>
+                <br>
+                <p
+                    style="color: #777; height:50px; padding-top:20px; background: black no-repeat -20px -20px url('test-assets/black-hole.jpeg');"
+                >
+                    Black hole sun
+                </p>
+                <br>
+                <p style="color: rgba(0,0,0,.6); background: #FFF">
+                    Some text in English
+                </p>
+                <br>
+                <div style="background: #FFF">
+                    <p style="color: #000; opacity: .6">
+                        Some text in English
+                    </p>
+                </div>
+                <br>
+                <p style="color: #666; background: #fff;" id="p"></p>
+                <script>
+                    const shadowRoot = document.getElementById('p').attachShadow({ mode: 'open' })
+                    shadowRoot.textContent = 'Some text in English'
+                </script>
+                <br>
+                <style>
+                    #backgroundSplit {
+                        color: rgba(90, 90, 90, 0.9);
+                        background-position: top 0 left 0;
+                        background-image: linear-gradient(90deg, transparent, transparent 3.3em, black 3.3em, black 6em);
+                        padding: 0 1em;
+                    }
+                </style>
+                <span id="backgroundSplit">
+                    Hello world
+                </span>
+                <br>
+                <p style="color: #333; background: #FFF;">
+                    Helvetica is a widely used sans-serif typeface developed in 1957 by Max Miedinger and Eduard Hoffmann.
+                </p>
+                <p style="font-family: helvetica; background: #EEE; color: #555;">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+                <br>
+                <button style="color: #555; background: #EEE;">My button!</button>
+                <br>
+                <div role="button" style="color: #555; background: #EEE;">My button!</div>
+                                    
+        <h2>1.4.9: Images of Text (No Exception) (Level AAA)</h2>
+            <h3> HTML images contain no text</h3>
+                <img
+                src="test-assets/textimage.jpg"
+                alt="The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules."
+                />
+                <br>
+                <input type="image" src="test-assets/button.jpg" alt="Press me" />
+                <br>
+                <div style="background-image: url(test-assets/textimage.jpg); width: 500px; height: 200px;" />
+                <img src="test-assets/0va7u6/welcome.png" alt="" />
+                <p>Welcome to our website</p>
+                <br>
+                <img
+                    alt="WCAG Rocks"
+                    src="data:image/svg+xml;utf8,
+                <svg xmlns='http://www.w3.org/2000/svg' height='20px' width='80px'>
+                    <text x='0' y='15'>WCAG Rocks</text>
+                </svg>"
+                />
+
+        <h2>1.4.12: Text Spacing (Level AA)</h2>
+            <h3>Important letter spacing in style attributes is wide enough</h3>
+                <p style="letter-spacing: 0.1em !important">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <style>
+                    p {
+                        font-size: 20px;
+                    }
+                </style>
+                
+                <p style="letter-spacing: 2px !important">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <p style="letter-spacing: normal !important">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <p style="letter-spacing: initial !important">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+            
+            <h3>Important line height in style attributes is wide enough</h3>    
+                <p style="line-height: 1em !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <style>
+                    p {
+                        font-size: 20px;
+                    }
+                </style>
+                
+                <p style="line-height: 20px !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <style>
+                    p {
+                        font-size: 16px;
+                    }
+                </style>
+                
+                <p style="line-height: 120% !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <p style="line-height: 1.2 !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <p style="line-height: normal !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+                <br>
+                <p style="line-height: initial !important; max-width: 200px;">
+                    The toy brought back fond memories of being lost in the rain forest.
+                </p>
+            
+            <h3>Important word spacing in style attributes is wide enough</h3>
+            <p style="word-spacing: 0.1em !important">
+                The toy brought back fond memories of being lost in the rain forest.
+            </p>
+            <br>
+            <style>
+                p {
+                    font-size: 20px;
+                }
+            </style>
+            
+            <p style="word-spacing: 2px !important">
+                The toy brought back fond memories of being lost in the rain forest.
+            </p>
+            <br>
+            <p style="word-spacing: normal !important">
+                The toy brought back fond memories of being lost in the rain forest.
+            </p>
+            <br>
+            <p style="word-spacing: initial !important">
+                The toy brought back fond memories of being lost in the rain forest.
+            </p>
+
+        <h2>2.1.1: Keyboard (Level A)</h2>
+            <h3>Iframe with interactive elements is not excluded from tab-order</h3>
+                <iframe tabindex="-1" srcdoc="<a href='/'>Home</a>"></iframe>
+            
+        <h2>2.1.3: Keyboard (No Exception) (Level AAA)</h2>
+            <h3>Scrollable content can be reached with sequential focus navigation</h3>
+                <section style="height: 100px; width: 500px; overflow-y: scroll">
+                    <h1>WCAG 2.1 Abstract</h1>
+                    <p>
+                        Web Content Accessibility Guidelines (WCAG) 2.1 covers a wide range of recommendations for making Web content more
+                        accessible. Following these guidelines will make content more accessible to a wider range of people with
+                        disabilities, including accommodations for blindness and low vision, deafness and hearing loss, limited movement,
+                        speech disabilities, photosensitivity, and combinations of these, and some accommodation for learning disabilities
+                        and cognitive limitations; but will not address every user need for people with these disabilities. These guidelines
+                        address accessibility of web content on desktops, laptops, tablets, and mobile devices. Following these guidelines
+                        will also often make Web content more usable to users in general.
+                    </p>
+                </section>
+                <br>
+                <style>
+                    section {
+                        height: 100px;
+                        width: 400px;
+                        overflow-y: auto;
+                        white-space: nowrap;
+                    }
+                    section > img {
+                        display: inline-block;
+                        width: 80px;
+                    }
+                </style>
+                <h1>Our sponsors:</h1>
+                <section>
+                    <img src="test-assets/w3c-logo.png" alt="W3C" />
+                    <img src="test-assets/eu-logo.svg" alt="EU" />
+                    <img src="test-assets/w3c-logo.png" alt="W3C" />
+                    <img src="test-assets/eu-logo.svg" alt="EU" />
+                    <img src="test-assets/w3c-logo.png" alt="W3C" />
+                    <img src="test-assets/eu-logo.svg" alt="EU" />
+                    <img src="test-assets/w3c-logo.png" alt="W3C" />
+                </section>
+                
+        <h2>2.2.1: Timing Adjustable (Level A), 2.2.4: Interruptions (Level AAA), 3.2.5: Change on Request (Level AAA)</h2>
+            <a href="https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/refresh.html">Examples</a>        
+            <!-- <h3>Meta element has no refresh delay</h3>
+                <head>
+                    <meta http-equiv="refresh" content="30" />
+                </head>
+                <body>
+                    <p>This page refreshes after 30 seconds.</p>
+                </body>
+                <br>
+                <head>
+                    <meta http-equiv="refresh" content="30; URL='https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/'" />
+                </head>
+                <body>
+                    <p>This page redirects afte 30 seconds.</p>
+                </body>
+                <br>
+                <head>
+                    <meta http-equiv="refresh" content="0: https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/" />
+                    <meta http-equiv="refresh" content="5; https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/" />
+                </head>
+                <body>
+                    <p>This page refreshes after 5 seconds.</p>
+                </body>
+                <br>
+                <head>
+                    <meta http-equiv="refresh" content="72000; https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/" />
+                </head>
+                <body>
+                    <p>This page redirects after exactly 20 hours.</p>
+                </body>
+            
+            <h3>Meta element has no refresh delay(no exception)</h3>
+                <head>
+                    <meta http-equiv="refresh" content="72001; URL='https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/'" />
+                </head>
+                <br>            
+                <head>
+                    <meta http-equiv="refresh" content="0: https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/" />
+                    <meta http-equiv="refresh" content="72001; https://emmie8.github.io/AccessibilityToolsCatalogTestWebsite/" />
+                </head> -->
+            
+        <h2> 2.4.2: Page Titled (Level A)</h2>   
+            <h3>HTML page has non-empty title</h3>             
+                <html>
+                    <h1>this page has no title</h1>
+                </html>
+                <br>
+                <html>
+                    <title></title>
+                </html>
+                <br>
+                <html>
+                    <iframe src="test-assets/sc2-4-2-title-page-with-title.html"></iframe>
+                </html>
+                <br>
+                <html>
+                    <head>
+                        <title></title>
+                    </head>
+                    <body>
+                        <title>Title of the page.</title>
+                    </body>
+                </html>
+                <br>
+                <html>
+                    <title> </title>
+                </html>                
+            
+            <h3>HTML page title is descriptive</h3>
+                <html lang="en">
+                    <head>
+                        <title>Apple harvesting season</title>
+                    </head>
+                    <body>
+                        <p>
+                            Clementines will be ready to harvest from late October through February.
+                        </p>
+                    </body>
+                </html>
+                <br>
+                <html lang="en">
+                    <head>
+                        <title>First title is incorrect</title>
+                        <title>Clementine harvesting season</title>
+                    </head>
+                    <body>
+                        <p>
+                            Clementines will be ready to harvest from late October through February.
+                        </p>
+                    </body>
+                </html>
+                <br>       
+                <html lang="en">
+                    <head>
+                        <title>University of Arkham</title>
+                    </head>
+                    <body>
+                        <h1>Search results for "accessibility" at the University of Arkham</h1>
+                        <p>None</p>
+                    </body>
+                </html>
+
+        <h2>2.4.4: Link Purpose (In Context) (Level A), 2.4.9: Link Purpose (Link Only) (Level AAA)</h2>
+            <h3>Link has non-empty accessible name</h3>
+                <a href="http://www.w3.org/WAI"></a>
+                <br>
+                <a href="https://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" alt=""/></a>
+                <br>
+                <a href="http://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" role="presentation"/></a>
+                <br>
+                <a href="http://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" role="none"/></a>
+                <br>
+                <a href="https://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" title=""/></a>
+                <br>
+                <a href="https://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" aria-labelledby="id1"/></a>
+                <div id="id1"></div>
+                <br>
+                <a href="https://www.w3.org/WAI"><img src="test-assets/w3c-logo.png" aria-labelledby="id1"/></a>
+                <br>
+                <a href="https://www.w3.org/WAI" style="left: -9999px; position: absolute;">
+                    <img src="test-assets/w3c-logo.png" />
+                </a>
+                <br>
+                <img src="test-assets/planets.jpg" width="145" height="126" alt="Planets" usemap="#planetmap" />
+               
+                <map name="planetmap">
+                    <area shape="rect" coords="0,0,82,126" href="sun.htm" />
+                </map>
+                <br>
+                <a href="https://www.w3.org/WAI" role="none"> </a>
+                <br>
+                See [<a href="https://act-rules.github.io/" role="doc-biblioref"
+                    ><img src="https://github.com/act-rules/act-rules.github.io/blob/develop/test-assets/shared/act-logo.png" alt=""/></a
+                >]
+
+        <h2>2.4.7: Focus Visible (Level AA)</h2>           
+            <h3>Element in sequential focus order has visible focus</h3>
+                <link rel="stylesheet" href="test-assets/styles.css" />
+                <a class="no-focus-default" href="https://act-rules.github.io/">ACT rules</a>
+
+        <h2>3.1.1: Language of Page (Level A)</h2>       
+            <h3>HTML page has lang attribute</h3>
+                <html>
+                    <body>
+                        The quick brown fox jumps over the lazy dog.
+                    </body>
+                </html>
+                <br>
+                <html lang="">
+                    <body>
+                        The quick brown fox jumps over the lazy dog.
+                    </body>
+                </html>
+                <br>
+                <html lang=" ">
+                    <body>
+                        The quick brown fox jumps over the lazy dog.
+                    </body>
+                </html>
+                <br>
+                <html xml:lang="en">
+                    <body>
+                        The quick brown fox jumps over the lazy dog.
+                    </body>
+                </html>
+            
+            <h3>HTML page lang attribute has valid language tag</h3>
+                <html lang="em-US"></html>
+                <br>
+                <html lang="#1"></html>
+                <br>
+                <html lang="eng">
+                    <body>
+                        <p lang="en">I love ACT rules!</p>
+                    </body>
+                </html>
+                <br>
+                <html lang="i-lux">
+                    <body>
+                        <p lang="lb">Lëtzebuerg ass e Land an Europa.</p>
+                    </body>
+                </html>
+
+        <h2>3.1.2: Language of Parts (Level AA)</h2>
+            <h3>Element with lang attribute has valid language tag</h3>
+                <html lang="es">
+                    <body>
+                        <article lang="dutch">
+                            Zij liepen een vreemde Tiki bar binnen, aan de rand van een dorpje aan het strand.
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="en">
+                    <body>
+                        <article lang="#!">
+                            They wandered into a strange Tiki bar on the edge of the small beach town.
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="fr">
+                    <body>
+                        <article lang="  ">
+                            They wandered into a strange Tiki bar on the edge of the small beach town.
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="es">
+                    <body>
+                        <article lang="english">
+                            <p aria-hidden="true">
+                                They wandered into a strange Tiki bar on the edge of the small beach town.
+                            </p>
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="fr">
+                    <body>
+                        <article lang="English">
+                            <p style="position: absolute; top: -9999px">
+                                They wandered into a strange Tiki bar on the edge of the small beach town.
+                            </p>
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="es">
+                    <body>
+                        <article lang="en">
+                            <div lang="invalid">
+                                They wandered into a strange Tiki bar on the edge of the small beach town.
+                            </div>
+                        </article>
+                    </body>
+                </html>
+                <br>
+                <html lang="en">
+                    <body>
+                        <div lang="invalid">
+                            <img src="test-assets/fireworks.jpg" alt="Fireworks over Paris" />
+                        </div>
+                    </body>
+                </html>
+                <br>
+                <html lang="lb">
+                    <body>
+                        <p lang="i-lux">Lëtzebuerg ass e Land an Europa.</p>
+                    </body>
+                </html>
+
+        <h2>4.1.2: Name, Role, Value (Level A)</h2>
+            <h3>Image button has non-empty accessible name</h3>
+                <input type="image" name="search" src="test-assets/search-icon.svg" />
+                <br>
+                <input type="image" src="test-assets/search-icon.svg" alt="" />
+                <br>
+                <input type="image" src="test-assets/search-icon.svg" aria-labelledby="non-existing" />
+
+            <h3>Button has non-empty accessible name</h3>
+                <button></button>
+                <br>
+                <button type="button" value="read more"></button>
+                <br>
+                <span role="button"></span>
+                <br>
+                <html>
+                    <style>
+                        .notInPage {
+                            position: absolute;
+                            left: -9999px;
+                            top: -9999px;
+                        }
+                    </style>
+                    <body>
+                        <button class="notInPage" value="delete"></button>
+                    </body>
+                </html>
+                <br>
+                <button role="none"></button>
+            
+            <h3>Element with aria-hidden has no content in sequential focus navigation</h3>
+                <div aria-hidden="true">
+                    <a href="/" style="position:absolute; top:-999em">Link</a>
+                </div>
+                <br>
+                <div aria-hidden="true">
+                    <input aria-disabled="true" />
+                </div>
+                <br>
+                <div aria-hidden="true">
+                    <div aria-hidden="false">
+                        <button>Some button</button>
+                    </div>
+                </div>
+                <br>
+                <p tabindex="0" aria-hidden="true">Some text</p>
+                <br>
+                <details aria-hidden="true">
+                    <summary>Some button</summary>
+                    <p>Some details</p>
+                </details>
+                <br>
+                <div
+                    id="sampleModal"
+                    role="dialog"
+                    aria-label="Sample Modal"
+                    aria-modal="true"
+                    style="border: solid black 1px; padding: 1rem;"
+                >
+                    <label>First and last name <input id="dialogFirst"/></label><br />
+                    <button id="closeButton">Close button</button>
+                </div>
+                <div aria-hidden="true">
+                    <a href="#" id="sentinelAfter" style="position:absolute; top:-999em"
+                        >Upon receiving focus, this focus sentinel should wrap focus to the top of the modal</a
+                    >
+                </div>
+                <script>
+                    document.getElementById('closeButton').addEventListener('click', () => {
+                        document.getElementById('sampleModal').style.display = 'none'
+                    })
+                </script>
+                         
+            <h3>Element with presentational children has no focusable content </h3>
+                <button>
+                    Save
+                    <span role="button" aria-label="save options" aria-expanded="false" tabindex="0">▼</span>
+                </button>
+                <br>
+                <p role="checkbox" aria-checked="false" tabindex="0">I agree to the <a href="/terms">terms of service</a></p>
+                <br>
+                <ul role="menu">
+                    <li role="menuitemcheckbox" aria-checked="true">
+                        <input type="checkbox" checked />
+                        Sort by Last Modified
+                    </li>
+                </ul>
+                
+            <h3>Form field has non-empty accessible name</h3>
+                <div>last name</div>
+                <input />
+                <br>
+                <input disabled />
+                <br>
+                <input aria-label=" " />
+                <br>
+                <div id="country"></div>
+                <select aria-labelledby="country">
+                    <option>England</option>
+                </select>
+                <br>
+                <label>
+                    first name
+                    <div role="textbox"></div>
+                </label>
+                <br>                
+                <label for="firstname">first name</label>
+                <div role="textbox" id="firstname"></div>
+                <br>
+                <div role="textbox">first name</div>
+                <br>
+                <p id="dip">Add one or more dip:</p>
+                <div role="menu" aria-labelledby="dip">
+                    <input type="checkbox" role="menuitemcheckbox" /><span aria-hidden="true">Ketchup</span><br />
+                    <input type="checkbox" role="menuitemcheckbox" /><span aria-hidden="true">Mayonnaise</span>
+                </div>
+            
+            <h3>Menuitem has non-empty accessible name</h3>
+                <div role="menu">
+                    <button role="menuitem">
+                        <img src="test-assets/file.svg" alt="" />
+                    </button>
+                </div>
+                <br>
+                <html lang="en">
+                    <style>
+                        .offscreen {
+                            position: absolute;
+                            left: -9999px;
+                            top: -9999px;
+                        }
+                    </style>
+                    <div role="menu" class="offscreen">
+                        <button role="menuitem">
+                            <img src="test-assets/file.svg" alt="" />
+                        </button>
+                    </div>
+                </html>
+
+            
+
+    </body>
+</html>
